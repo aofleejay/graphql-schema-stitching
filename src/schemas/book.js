@@ -1,5 +1,5 @@
-const { makeExecutableSchema } = require('graphql-tools')
-const commonTypeDefs = require('./common')
+const { makeExecutableSchema, mergeSchemas } = require('graphql-tools')
+const commonSchema = require('./common')
 
 const typeDefs = `
   type Book {
@@ -23,8 +23,9 @@ const resolvers = {
 }
 
 const bookSchema = makeExecutableSchema({
-  typeDefs: [typeDefs, commonTypeDefs],
+  typeDefs: [typeDefs, commonSchema],
   resolvers,
 })
 
 module.exports = bookSchema
+// module.exports = mergeSchemas({ schema: [bookSchema, commonSchema] })
