@@ -6,7 +6,9 @@ const typeDefs = `
     id: ID!
     name: String
     authorId: ID!
+    timestamp: Timestamp
   }
+
   type Query {
     bookById(id: ID!): Book
   }

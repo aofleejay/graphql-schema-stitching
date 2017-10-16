@@ -1,6 +1,7 @@
 const typeDefs = `
-  type Common {
-    commonField: String
+  type Timestamp {
+    createdat: String
+    updatedat: String
   }
 `
 
