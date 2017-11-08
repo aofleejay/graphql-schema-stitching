@@ -1,12 +1,15 @@
-const queries = `
-  bookById(id: ID!): Book
-`
-
-const mutations = `
-  createBook(id: ID!): Book
-`
+import { makeExecutableSchema } from 'graphql-tools'
+import { typeDefs as commonTypeDefs } from './common'
 
 const typeDefs = `
+  type Query {
+    bookById(id: ID!): Book    
+  }
+
+  type Mutation {
+    createBook(id: ID!): Book
+  }
+
   type Book {
     id: ID!
     name: String
@@ -28,9 +31,7 @@ const resolvers = {
   }
 }
 
-export {
-  queries,
-  mutations,
-  typeDefs,
+export default makeExecutableSchema({
+  typeDefs: [typeDefs, commonTypeDefs],
   resolvers,
-}
+})
