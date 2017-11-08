@@ -1,5 +1,3 @@
-const { makeExecutableSchema } = require('graphql-tools')
-
 const typeDefs = `
   type Timestamp {
     createdat: String
@@ -7,7 +5,4 @@ const typeDefs = `
   }
 `
 
-module.exports = typeDefs
-// module.exports = makeExecutableSchema({
-//   typeDefs
-// })
+export { typeDefs }

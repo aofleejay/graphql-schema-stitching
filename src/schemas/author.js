@@ -1,5 +1,10 @@
-const { makeExecutableSchema, mergeSchemas } = require('graphql-tools')
-const commonSchema = require('./common')
+const queries = `
+  authorById(id: ID!): Author
+`
+
+const mutations = `
+  createAuthor(id: ID!): Author
+`
 
 const typeDefs = `
   type Author {
@@ -7,24 +12,24 @@ const typeDefs = `
     name: String
     timestamp: Timestamp
   }
-
-  type Query {
-    authorById(id: ID!): Author
-  }
 `
 
 const resolvers = {
   Query: {
-    authorById(root, arg) {
+    authorById(_, arg) {
+      return { id: "1", name: "George R. R. Martin" }
+    }
+  },
+  Mutation: {
+    createAuthor(_, arg) {
       return { id: "1", name: "George R. R. Martin" }
     }
   }
 }
 
-const authorSchema = makeExecutableSchema({
-  typeDefs: [typeDefs, commonSchema],
+export {
+  queries,
+  mutations,
+  typeDefs,
   resolvers,
-})
-
-module.exports = authorSchema
-// module.exports = mergeSchemas({ schema: [authorSchema, commonSchema] })
+}

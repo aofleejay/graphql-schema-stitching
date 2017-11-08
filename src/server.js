@@ -1,8 +1,8 @@
 require('dotenv').config()
-const express = require('express')
-const bodyParser = require('body-parser')
-const { graphqlExpress, graphiqlExpress } = require('graphql-server-express')
-const schema = require('./schemas/root')
+import express from 'express'
+import bodyParser from 'body-parser'
+import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
+import schema from './schemas/rootSchema'
 
 const nodePort = process.env.NODE_PORT || 4000
 
