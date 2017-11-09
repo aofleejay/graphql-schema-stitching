@@ -5,12 +5,13 @@ import {
 } from 'graphql-tools'
 import { HttpLink } from 'apollo-link-http'
 
-async function getSomeOneRemoteSchema() {
-  const link = new HttpLink({ uri: 'https://api.graph.cool/simple/v1/cj64vfbv3xxp80153vja60n7y', fetch })  
+const getSchemas = async () => {
+  const link = new HttpLink({ uri: 'https://api.graph.cool/simple/v1/cj5db6nsuqxxi0127xpynt7n4', fetch })  
+
   return makeRemoteExecutableSchema({
     schema: await introspectSchema(link),
     link,
   })
 }
 
-export default getSomeOneRemoteSchema
+export { getSchemas }
