@@ -21,12 +21,12 @@ const typeDefs = `
 const resolvers = {
   Query: {
     bookById(_, arg) {
-      return { id: "1", name: "Game of throne", authorId: "1" }
+      return { id: "1", name: "Game of thrones", authorId: "1" }
     }
   },
   Mutation: {
     createBook(_, arg) {
-      return { id: "1", name: "Game of throne", authorId: "1" }
+      return { id: "1", name: "Game of thrones", authorId: "1" }
     }
   }
 }
